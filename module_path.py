@@ -28,10 +28,22 @@ def correctness_ip(ip: str):
     return cor_ip
 
 
-def search_ip(text: str):
+def search_ip(text: str) -> list[tuple]:
+    """
+    Функция принимает параметр text(строка), дальше функция разбивает текс на отдельные слова и создает список,
+    после функция берет каждый элемент созданного списка и проверяет с помощью функции correctness_ip относится
+    ли элемент к ip4 адресу и создает с ними отдельный список. После функция создает множество со всеми ip адресами,
+    и после этого создает список кортежей, где в кортеже записан ip адрес и его кол-во повторений в тексте, и
+    возвращает данный список кортежей
+    :param text: Строковой тип
+    :return:
+        объект Counter
+
+    """
     while text.count("\n") > 0:
         text = text.replace("\n", " ")
     list_word = text.split(" ")
     list_ip = [ip for ip in list_word if correctness_ip(ip)]
-    tuple_ip = Counter(list_ip)
-    return tuple_ip
+    set_ip = set(list_ip)
+    list_ip = [(i, list_ip.count(i)) for i in set_ip]
+    return list_ip
