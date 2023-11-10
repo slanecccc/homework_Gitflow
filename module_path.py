@@ -65,4 +65,4 @@ def sorted_ip(list_ip: list[tuple]) -> list[tuple]:
 def write_file_ip(path_file, lst_ip):
     with open(path_file,'w', encoding='utf-8') as file:
         for word in lst_ip:
-            file.write(f"{word[0]} {word[1]} \n")
+            file.write(f"{word[0]} - {word[1]} \n")
