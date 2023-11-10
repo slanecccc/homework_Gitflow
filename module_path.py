@@ -47,3 +47,16 @@ def search_ip(text: str) -> list[tuple]:
     set_ip = set(list_ip)
     list_ip = [(i, list_ip.count(i)) for i in set_ip]
     return list_ip
+
+
+def sorted_ip(list_ip: list[tuple]) -> list[tuple]:
+    """
+    Функция принимает параметр list_ip(список кортежей), дальше функция сортирует список в порядке убывания по
+    кол-ву повторений ip адреса в тексте, если кол-во одинаковое то сортировка уже идет по длине ip адреса и
+    возвращает отсортированный список кортежей
+    :param list_ip: Список кортежей
+    :return:
+        list[tuple]: отсортированный список кортежей
+    """
+    list_ip = sorted(list_ip, key=lambda x: (x[1], len(x[0])), reverse=True)
+    return list_ip
