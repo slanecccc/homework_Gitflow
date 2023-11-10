@@ -37,7 +37,7 @@ def search_ip(text: str) -> list[tuple]:
     возвращает данный список кортежей
     :param text: Строковой тип
     :return:
-        объект Counter
+        list[tuple]: список кортежей (ip-адрес, кол-во повторений в тексте)
 
     """
     while text.count("\n") > 0:
