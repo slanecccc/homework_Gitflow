@@ -60,3 +60,9 @@ def sorted_ip(list_ip: list[tuple]) -> list[tuple]:
     """
     list_ip = sorted(list_ip, key=lambda x: (x[1], len(x[0])), reverse=True)
     return list_ip
+
+
+def write_file_ip(path_file, lst_ip):
+    with open(path_file,'w', encoding='utf-8') as file:
+        for word in lst_ip:
+            file.write(f"{word[0]} {word[1]} \n")
